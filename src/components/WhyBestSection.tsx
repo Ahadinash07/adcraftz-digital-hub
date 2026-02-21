@@ -26,7 +26,7 @@ export function WhyBestSection() {
   return (
     <section className="section-padding gradient-bg-subtle">
       <div ref={ref} className={`container mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-wider text-primary">Why We're The Best</p>
             <h2 className="font-heading text-3xl font-bold leading-tight md:text-4xl">
@@ -55,12 +55,12 @@ export function WhyBestSection() {
             </div>
           </div>
 
-          {/* Right side funnel image */}
-          <div className="flex items-center justify-center">
+          {/* Larger funnel image */}
+          <div className="flex items-center justify-center lg:sticky lg:top-24">
             <img
               src={funnelImage}
               alt="Digital marketing funnel - awareness, consideration, conversion"
-              className="w-full max-w-md rounded-2xl shadow-2xl shadow-primary/10"
+              className="w-full rounded-2xl shadow-2xl shadow-primary/10"
             />
           </div>
         </div>
