@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
+import { Send, Phone, Mail, MapPin } from "lucide-react";
 
 const services = [
   "Website Development",
@@ -44,10 +44,45 @@ export function ContactFormSection() {
           </p>
         </div>
 
-        <div className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-primary/5 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-5">
+          {/* Contact Info - Left */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-lg space-y-6">
+              <h3 className="font-heading text-xl font-semibold gradient-text">Contact Information</h3>
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full gradient-bg">
+                  <MapPin className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium">Our Office</p>
+                  <p className="text-sm text-muted-foreground">Hyderabad, Telangana, India</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full gradient-bg">
+                  <Phone className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium">Phone</p>
+                  <p className="text-sm text-muted-foreground">+91 XXXXX XXXXX</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full gradient-bg">
+                  <Mail className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium">Email</p>
+                  <p className="text-sm text-muted-foreground">info@adcraftz.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form - Right (horizontal layout) */}
+          <div className="lg:col-span-3">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-primary/5 md:p-8">
+              <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
                 <Input
                   placeholder="Your Name *"
                   value={form.name}
@@ -59,8 +94,6 @@ export function ContactFormSection() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
                 <Input
                   placeholder="Mobile Number *"
                   type="tel"
@@ -77,18 +110,19 @@ export function ContactFormSection() {
                     ))}
                   </SelectContent>
                 </Select>
-              </div>
-              <Textarea
-                placeholder="Your Message (Optional)"
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                rows={4}
-              />
-              <Button type="submit" className="w-full gradient-bg border-0 text-white hover:opacity-90" size="lg">
-                <Send className="mr-2 h-4 w-4" />
-                Send Message
-              </Button>
-            </form>
+                <Textarea
+                  placeholder="Your Message (Optional)"
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  rows={4}
+                  className="sm:col-span-2"
+                />
+                <Button type="submit" className="sm:col-span-2 gradient-bg border-0 text-white hover:opacity-90" size="lg">
+                  <Send className="mr-2 h-4 w-4" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
