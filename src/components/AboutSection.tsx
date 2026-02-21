@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Target, Eye, Users } from "lucide-react";
+import aboutImage from "@/assets/about-image.jpg";
 
 export function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -30,6 +31,15 @@ export function AboutSection() {
           </div>
 
           <div className="space-y-6">
+            {/* About Image */}
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src={aboutImage}
+                alt="AdCraftz team brainstorming marketing strategies"
+                className="w-full h-64 object-cover rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+
             <div className="rounded-2xl border border-border bg-card p-6 shadow-lg">
               <h3 className="mb-4 font-heading text-xl font-semibold gradient-text">Why AdCraftz?</h3>
               <p className="text-muted-foreground leading-relaxed">
