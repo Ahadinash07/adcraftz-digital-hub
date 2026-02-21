@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Rocket, ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-image.jpg";
 
 const services = [
   "Website Development",
@@ -59,10 +60,28 @@ export function HeroSection() {
                 <a href="#about">Learn More</a>
               </Button>
             </div>
+
+            {/* Hero Image below buttons on mobile, hidden on lg */}
+            <div className="mt-6 lg:hidden">
+              <img
+                src={heroImage}
+                alt="AdCraftz digital marketing team working on campaigns"
+                className="w-full rounded-2xl shadow-xl object-cover max-h-72"
+              />
+            </div>
           </div>
 
-          {/* Right Form */}
-          <div className="relative">
+          {/* Right Side: Image + Form */}
+          <div className="space-y-6">
+            {/* Hero image - visible only on lg+ */}
+            <div className="hidden lg:block">
+              <img
+                src={heroImage}
+                alt="AdCraftz digital marketing team working on campaigns"
+                className="w-full rounded-2xl shadow-xl object-cover h-64"
+              />
+            </div>
+
             <div className="rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-primary/5 md:p-8">
               <h3 className="mb-1 font-heading text-xl font-semibold">Get a Free Consultation</h3>
               <p className="mb-6 text-sm text-muted-foreground">Fill in your details and we'll reach out</p>
